@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101619" />
+  <title>Veil of the Crescent — A Qamar Story</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101619'/%3E%3Cpath d='M43 10a24 24 0 1 0 11 42A21 21 0 0 1 43 10Z' fill='%23d9b474'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="world" aria-label="Three-dimensional game world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">☾</span><div><span class="brand-title">VEIL OF THE CRESCENT</span><span class="brand-sub">THE QAMAR CHRONICLES · 1191</span></div></div>
+      <div class="chapter"><span class="chapter-kicker">MEMORY SEQUENCE 01</span><span class="chapter-name">THE SILENT MINARET</span></div>
+      <button id="sound-toggle" class="icon-button" aria-label="Toggle sound">♪</button>
+    </header>
+    <section class="mission-card" id="mission-card">
+      <div class="eyebrow"><span class="pulse-dot"></span> MEMORY IN PROGRESS</div>
+      <h1>Echoes in the<br/><em>Old Quarter</em></h1>
+      <p>Find the three fragments before the Templar envoy leaves the city.</p>
+      <div class="objective"><span class="objective-icon">◇</span><span id="objective-text">Recover the courier’s ledger</span><b id="fragment-count">0 / 3</b></div>
+      <div class="progress-track"><span id="progress-fill"></span></div>
+    </section>
+    <div class="compass" id="compass"><span class="compass-n">N</span><span class="compass-diamond">◆</span><span class="compass-label">QAMAR</span></div>
+    <section class="toast" id="toast" aria-live="polite"></section>
+    <section class="interaction" id="interaction"><span class="keycap">E</span><span id="interaction-text">Examine</span></section>
+    <div class="stealth-status" id="stealth-status"><span class="eye">◉</span><span id="stealth-text">UNSEEN</span><div class="alert-meter"><i></i><i></i><i></i></div></div>
+    <div class="crosshair"><span></span></div>
+    <footer class="controls">
+      <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVE</span><i></i>
+      <span><kbd>SHIFT</kbd> SPRINT</span><i></i><span><kbd>SPACE</kbd> VAULT</span><i></i>
+      <span><kbd>C</kbd> CROUCH</span><i></i><span><kbd>E</kbd> INTERACT</span>
+      <span class="controls-right">MOUSE LOOK · <kbd>ESC</kbd> RELEASE</span>
+    </footer>
+    <div class="touch-controls" id="touch-controls"><div class="touch-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div><div class="touch-actions"><button id="touch-jump">VAULT</button><button id="touch-crouch">HIDE</button><button id="touch-use">USE</button></div></div>
+    <section class="intro" id="intro">
+      <div class="intro-panel">
+        <div class="intro-symbol">☾ <span>✦</span></div>
+        <div class="eyebrow">A STORY OF SHADOWS &amp; CHOICE</div>
+        <h2>Veil of the<br/><em>Crescent</em></h2>
+        <p>Qamar, 1191. In a city caught between the hidden Brotherhood and the Templar Order, an old oath is about to be broken.</p>
+        <p class="intro-small">You are Layla, a keeper of secrets. Find the courier’s three clues, then reach the minaret before the envoy escapes. The city remembers every choice.</p>
+        <button id="begin-button">ENTER THE MEMORY <span>→</span></button>
+        <div class="intro-foot">FICTIONAL CHARACTERS · INSPIRED BY THE MEDIEVAL LEVANT</div>
+      </div>
+    </section>
+    <section class="ending hidden" id="ending"><div class="ending-panel"><div class="eyebrow">MEMORY SEQUENCE COMPLETE</div><h2>The truth<br/><em>is a choice.</em></h2><p id="ending-copy"></p><div class="ending-choices"><button id="reveal-choice">REVEAL THE TRUTH</button><button id="seal-choice">KEEP THE OATH</button></div><button id="replay-button">WALK THE MEMORY AGAIN <span>↻</span></button></div></section>
+    <div class="loading" id="loading"><span class="loading-mark">☾</span><span>RECALLING QAMAR</span></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
